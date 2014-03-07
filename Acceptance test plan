@@ -1,0 +1,38 @@
+The customer enters a book into the database by typing in the ISBN number. If ISBN number was recognized, the book is then entered.  If the ISBN number was not found, the program returns an error message.  
+Test 1
+Input: Enter ISBN number
+Expected Output: Book enters customer’s library
+Pass/Fail Criterion: Fails if error message pops up, passes if book is added to library
+
+The user types a book to search for in the search bar.  If the search keywords do not match what is in the database, then return search not found.  If the search keywords are matched, then display the book and all the information associated with it.  
+Test 2
+Input: Book name into search bar
+Expected Output: Book information
+Pass/Fail Criterion: Fails if search not found, passes if book info brought up
+
+User adds another user on their friends list.  User views all the books owned by the other users on his friend’s list and is able to compare and contrast his own book collection with others.  
+Test 3
+Input: Add user to friend list
+Expected Output: Friend added
+Pass/Fail Criterion: Fails if friend not added or not found, passes if friend added
+
+
+User wants to sort his/her book collection by genre.  User uses the drop-down menu to select genre and the program groups the books by their individual genres.  User also does the same with other sorts like title, year, and region.  
+Test 4
+Input: Select a genre to view
+Expected Output: View selected genre
+Pass/Fail Criterion: Passes if selected genre brought up, otherwise fails
+
+
+If the user decides to loan a book to a friend, he may select the “Checkout book” icon to temporarily remove the book from the active reading list and be placed on a list which holds all the books being loaned out.
+Test 5
+Input: Select “Checkout Book” icon
+Expected Output: Book is loaned out to a friend
+Pass/Fail Criterion: Fails if friend does not receive book and book is not temporarily removed from active reading list of original owner, otherwise passes
+
+
+User rates each book and/or leaves a comment.  The user’s friends may view these comments if the setting is activated.  
+Test 6
+Input: Insert a comment and rating for a book
+Expected Output: Comment and rating appears for friends who’ve selected to view it
+Pass/Fail Criterion: Fails if comment and rating does not appear for friends who have selected to view the comments, otherwise passes

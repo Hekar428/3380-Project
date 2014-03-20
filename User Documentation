@@ -1,0 +1,19 @@
+User Documentation
+
+The user must first create an account. To do so the user must input an unused username and an associated password. Once created the user can access their account by logging in with their username and password.
+
+A user account will not have any friends or books associated with it when first created.
+
+A user can add books to their profile by providing an ISBN number of the book. From then on the book will be able to be viewed with this profile.
+
+A user1 can add friends to their friend list using their friends username(user2). From then on they will be on the user1's friend list. If user2 wants user1 on their friends list they must add user1 themself.
+
+A user can view the library of anyone on their friends list.
+
+A user can sort a collection of books they are looking at with tabs. These tabs will allow the user to sort by genre, title, year, and region.
+
+There is a search bar that can allow the user to find books. All that is required is to type the full name of the book into the search bar.
+
+There will be a loan feature for letting friends view your books. The user must select the "Checkout book" icon to temporarily remove it from their library and into the library of a friend.
+
+A user can rate books and leave comments for their friends to see by selecting a book in their library.

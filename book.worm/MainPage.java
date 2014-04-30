@@ -62,6 +62,7 @@ public class MainPage extends JFrame implements ActionListener {
         panel.add(welcome);
 
         getContentPane().add(panel);
+        JScrollPane scrollPane = new JScrollPane(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }

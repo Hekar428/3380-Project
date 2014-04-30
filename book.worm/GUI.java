@@ -39,7 +39,8 @@ public class GUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == createAcctButton) {
-            CreateAccount first = new CreateAccount();
+            mylabel.setText("clicked");
+            // CreateAccount first = new CreateAccount();
         }
     }
     

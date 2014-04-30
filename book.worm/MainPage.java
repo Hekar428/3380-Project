@@ -11,7 +11,7 @@ public class MainPage extends JFrame implements ActionListener {
     JLabel welcome = new JLabel("Welcome Username");
     JPanel panel = new JPanel();
     JButton Name;
-    JButton Friends;
+    JButton Friend;
     
     int yheight=1;
     int xheight=1;
@@ -22,24 +22,10 @@ public class MainPage extends JFrame implements ActionListener {
             Name.addActionListener(this);
             
             panel.add(Name);
-            this.add(panel);
+            
 
-            if(i!=1){
-                if(i%4==0){
-                    xheight=7;
-                } 
-                if(i%4==1){
-                    xheight=1;
-                    yheight++;
-                }
-                if(i%4==2){
-                    xheight=3;
-                }
-                if(i%4==3){
-                    xheight=5;
-                }
-            int yheight = 1;
-            int xheight = 1;
+            
+
             if(i%4 == 0) {
                 yheight++;
                 xheight = 1;
@@ -55,16 +41,16 @@ public class MainPage extends JFrame implements ActionListener {
             }
         
             Name.setBounds(110*xheight, 100*yheight, 150, 50);
-            }
+            
         }
         
-        Friends = new JButton("Friends");//Put actual book name here
-        Name.addActionListener(this);
-            
+        Friend = new JButton("Friends");
+        Friend.addActionListener(this);
+        panel.add(Friend);    
         panel.add(Name);
         this.add(panel);
         
-        Friends.setBounds(770, 25, 150, 50);
+        Friend.setBounds(770, 25, 150, 50);
         
 
         setSize(800,600);
@@ -84,8 +70,8 @@ public class MainPage extends JFrame implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent event){
-        if (event.getSource() == Friends){
-            
+        if (event.getSource() == Friend){
+            Friends first = new Friends();
         }
         
     }

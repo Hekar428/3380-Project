@@ -14,6 +14,13 @@ public class Friends extends JFrame implements ActionListener {
         Main = new JButton("Main Page");
         Main.addActionListener(this);
 
+        JTextArea textArea = new JTextArea(User.NumberOfFriends, 16);
+        JScrollPane scrollPane = new JScrollPane(textArea); 
+        textArea.setEditable(false);
+        for(int i=1; i<=User.NumberOfFriends; i++){
+            textArea.append(NEXTFRIEND + "//n");
+        }
+        
         pane.add(Main);
         this.add(pane);
 

@@ -1,35 +1,37 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Scanner;
+import java.io.*;
 
 public class GUI extends JFrame implements ActionListener {
     JPanel mypanel;
-    JButton loginButton;
-    JButton createAcctButton;
+    JButton mybutton1;
+    JButton mybutton2;
     JLabel mylabel;
     
-    JTextField txuser   = new JTextField(15);
+    JTextField txuser = new JTextField(15);
     JPasswordField pass = new JPasswordField(15);
+    File file = new File("UserList.txt");
     
-    public GUI() {
-        mypanel   = new JPanel();
-        loginButton = new JButton("Login");
-        loginButton.addActionListener(this);
-        createAcctButton = new JButton("Create Account");
-        createAcctButton.addActionListener(this);
-        mylabel   = new JLabel();
+    public GUI(){
+        mypanel = new JPanel();
+        mybutton1 = new JButton("Login");
+        mybutton1.addActionListener(this);
+        mybutton2 = new JButton("Create Account");
+        mybutton2.addActionListener(this);
+        mylabel = new JLabel();
         
-        mypanel.add(loginButton);
-        mypanel.add(createAcctButton);
+        mypanel.add(mybutton1);
+        mypanel.add(mybutton2);
         mypanel.add(mylabel);
         this.add(mypanel);
         
-        txuser.setBounds      (70,30,150,20);
-        pass.setBounds        (70,65,150,20);
-        loginButton.setBounds (110,100,80,20);
+        txuser.setBounds(70,30,150,20);
+        pass.setBounds(70,65,150,20);
+        mybutton1.setBounds(110,100,80,20);
 
-        mypanel.add(loginButton);
+        mypanel.add(mybutton1);
         mypanel.add(txuser);
         mypanel.add(pass);
         
@@ -37,10 +39,12 @@ public class GUI extends JFrame implements ActionListener {
     }
     
     @Override
-    public void actionPerformed(ActionEvent event) {
-        if (event.getSource() == createAcctButton) {
-            mylabel.setText("clicked");
-            // CreateAccount first = new CreateAccount();
+    public void actionPerformed(ActionEvent event){
+        if (event.getSource() == mybutton1){
+            
+        }
+        if (event.getSource() == mybutton2){
+            
         }
     }
     
@@ -49,25 +53,72 @@ public class GUI extends JFrame implements ActionListener {
      * to find a match
      */
     public void actionlogin() {
-        loginButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                String puname = txuser.getText();
-                String ppaswd = pass.getText();
-        
-                //where we need to implement the text file
-                if(puname.equals("test") && ppaswd.equals("12345")) {
-                    MainPage regFace =new MainPage();
-                    regFace.setVisible(true);
-                    dispose();
-                } 
-                else {
-                    JOptionPane.showMessageDialog(null,"Wrong Password / Username");
-                    txuser.setText("");
-                    pass.setText("");
-                    txuser.requestFocus();
+        try {
+            final Scanner keyb = new Scanner(file);
+            mybutton1.addActionListener(new ActionListener() {
+                final Scanner keyb = new Scanner(file);
+                public void actionPerformed(ActionEvent ae) {
+                    String puname = txuser.getText();
+                    String ppaswd = pass.getText();
+            
+                    while (keyb.hasNext()) {
+                        if (puname.equals(keyb.next())) {
+                            if (ppaswd.equals(keyb.next())) {
+                                MainPage regFace = new MainPage();
+                                regFace.setVisible(true);
+                                dispose();
+                                break;
+                            }
+                            else {
+                                JOptionPane.showMessageDialog(null,"Wrong Password / Username");
+                                txuser.setText("");
+                                pass.setText("");
+                                txuser.requestFocus();
+                            }
+                        }
+                        else {
+                            txuser.setText("");
+                            pass.setText("");
+                            txuser.requestFocus();
+                            keyb.next();
+                        }
+                    }
                 }
-            }   
-        });
+            });
+        } catch (FileNotFoundException s) {}
+        try {
+            mybutton2.addActionListener(new ActionListener() {
+                final Scanner keyc = new Scanner(file);
+                public void actionPerformed(ActionEvent ae) {
+                    String puname = txuser.getText();
+                    String ppaswd = pass.getText();
+                    boolean taken = false;
+
+                    while (keyc.hasNext()) {
+                        if (puname.equals(keyc.next())) {
+                            JOptionPane.showMessageDialog(null,"User Name Taken.");
+                            txuser.setText("");
+                            pass.setText("");
+                            txuser.requestFocus();
+                            taken = true;
+                        }
+                        else
+                            keyc.next();
+                    }
+                    if (!taken) {
+                        try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("UserList.txt", true)))) {
+                            out.print(puname+" ");
+                            out.println(ppaswd);
+                            JOptionPane.showMessageDialog(null,"Account Created Successfully");
+                            txuser.setText("");
+                            pass.setText("");
+                        } catch (IOException e) {}
+                    }
+                }
+            });
+        } catch (FileNotFoundException s) {}
     }
 }
     
+    
+

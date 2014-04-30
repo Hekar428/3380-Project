@@ -42,7 +42,7 @@ public class MainPage extends JFrame implements ActionListener {
 
         setSize(800,600);
         setLocation(500,280);
-        panel.setLayout (null); 
+        panel.setLayout(null); 
 
         welcome.setBounds(70,50,150,60);
 
@@ -55,8 +55,8 @@ public class MainPage extends JFrame implements ActionListener {
     
     
     @Override
-    public void actionPerformed(ActionEvent event){
-        if (event.getSource() == Name){
+    public void actionPerformed(ActionEvent event) {
+        if (event.getSource() == Name) {
             
         }
         

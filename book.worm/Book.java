@@ -4,10 +4,6 @@
  */
 package book.worm;
 
-/**
- *
- * @author Blake
- */
 public class Book {
     
 }

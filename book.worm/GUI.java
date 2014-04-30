@@ -107,7 +107,8 @@ public class GUI extends JFrame implements ActionListener {
                             keyc.next();
                     }
                     if (!taken) {
-                        try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("UserList.txt", true)))){
+                        try {
+                            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("UserList.txt", true)));
                             out.print(puname+" ");
                             out.println(ppaswd);
                             JOptionPane.showMessageDialog(null,"Account Created Successfully");

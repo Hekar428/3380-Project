@@ -11,6 +11,8 @@ public class MainPage extends JFrame implements ActionListener {
     JLabel welcome = new JLabel("Welcome Username");
     JPanel panel = new JPanel();
     JButton Name;
+    int yheight=1;
+    int xheight=1;
     MainPage(){
         super("BookWorm");
         for(int i=1;i<=50; i++ ){
@@ -19,20 +21,20 @@ public class MainPage extends JFrame implements ActionListener {
             
             panel.add(Name);
             this.add(panel);
-            int yheight=1;
-            int xheight=1;
-            if(i%4==0){
-                yheight++;
-                xheight=1;
-            } 
-            if(i%4==1 && i!=1){
-                xheight=3;
-            }
-            if(i%4==2){
-                xheight=5;
-            }
-            if(i%4==3){
-                xheight=7;
+            if(i!=1){
+                if(i%4==0){
+                    xheight=7;
+                } 
+                if(i%4==1){
+                    xheight=1;
+                    yheight++;
+                }
+                if(i%4==2){
+                    xheight=3;
+                }
+                if(i%4==3){
+                    xheight=5;
+                }
             }
         
             Name.setBounds(110*xheight,100*yheight,150,50);

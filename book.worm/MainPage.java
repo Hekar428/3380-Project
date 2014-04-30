@@ -1,4 +1,4 @@
-package book.worm;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -11,31 +11,31 @@ public class MainPage extends JFrame implements ActionListener {
     JLabel welcome = new JLabel("Welcome Username");
     JPanel panel = new JPanel();
     JButton Name;
-    MainPage(){
+    MainPage() {
         super("BookWorm");
-        for(int i=1;i<=50; i++ ){
+        for(int i = 1; i <= 50; i++) {
             Name = new JButton("Book");//Put actual book name here
             Name.addActionListener(this);
             
             panel.add(Name);
             this.add(panel);
-            int yheight=1;
-            int xheight=1;
-            if(i%4==0){
+            int yheight = 1;
+            int xheight = 1;
+            if(i%4 == 0) {
                 yheight++;
-                xheight=1;
+                xheight = 1;
             } 
-            if(i%4==1 && i!=1){
+            if(i%4 == 1 && i != 1) {
                 xheight=3;
             }
-            if(i%4==2){
-                xheight=5;
+            if(i%4 == 2) {
+                xheight = 5;
             }
-            if(i%4==3){
-                xheight=7;
+            if(i%4 == 3) {
+                xheight = 7;
             }
         
-            Name.setBounds(110*xheight,100*yheight,150,50);
+            Name.setBounds(110*xheight, 100*yheight, 150, 50);
          
         }
         

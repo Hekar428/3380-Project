@@ -56,7 +56,7 @@ public class GUI extends JFrame implements ActionListener {
         
                 //where we need to implement the text file
                 if(puname.equals("test") && ppaswd.equals("12345")) {
-                    newframe regFace =new newframe();
+                    MainPage regFace =new MainPage();
                     regFace.setVisible(true);
                     dispose();
                 } 

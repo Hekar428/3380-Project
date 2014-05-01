@@ -11,7 +11,13 @@ public class MainPage extends JFrame implements ActionListener {
     JLabel welcome = new JLabel("Welcome Username");
     JPanel panel = new JPanel();
     JButton Name;
+<<<<<<< HEAD
+    int yheight=1;
+    int xheight=1;
+    MainPage(){
+=======
     MainPage() {
+>>>>>>> 053616a68303ba18efc48dd5d3f519aaec9adc4c
         super("BookWorm");
         for(int i = 1; i <= 50; i++) {
             Name = new JButton("Book");//Put actual book name here
@@ -19,6 +25,22 @@ public class MainPage extends JFrame implements ActionListener {
             
             panel.add(Name);
             this.add(panel);
+<<<<<<< HEAD
+            if(i!=1){
+                if(i%4==0){
+                    xheight=7;
+                } 
+                if(i%4==1){
+                    xheight=1;
+                    yheight++;
+                }
+                if(i%4==2){
+                    xheight=3;
+                }
+                if(i%4==3){
+                    xheight=5;
+                }
+=======
             int yheight = 1;
             int xheight = 1;
             if(i%4 == 0) {
@@ -33,6 +55,7 @@ public class MainPage extends JFrame implements ActionListener {
             }
             if(i%4 == 3) {
                 xheight = 7;
+>>>>>>> 053616a68303ba18efc48dd5d3f519aaec9adc4c
             }
         
             Name.setBounds(110*xheight, 100*yheight, 150, 50);

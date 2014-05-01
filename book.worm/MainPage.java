@@ -8,8 +8,8 @@ import java.util.Scanner;
 //this is gonna be the actual gui that will display the app after login
 public class MainPage extends JFrame implements ActionListener {
 
-    
-    
+    String SNumberOfBooks;
+    int NumberOfBooks;
     String BookName;
     JPanel panel = new JPanel();
     JButton Name;
@@ -24,12 +24,12 @@ public class MainPage extends JFrame implements ActionListener {
         super("BookWorm");
         try{
             Scanner keyb = new Scanner(file);
-            keyb.findInLine(";");
+            while (SNumberOfBooks!=";"){
+                SNumberOfBooks = keyb.next();
+            }
             
-            String NumberofBooks = keyb.next();
+                NumberOfBooks = Integer.parseInt(keyb.next());
             
-            int NumberOfBooks = Integer.parseInt(NumberofBooks);
-
             for(int i = 1; i <= NumberOfBooks; i++) {
                 BookName = "";
                 while(keyb.next()!= ","){

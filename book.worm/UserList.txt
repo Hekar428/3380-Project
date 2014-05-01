@@ -1,5 +1,6 @@
 hekar428 test1
-caleb test2
+caleb test2 ; 3 , chase , blake , caleb
 blake test3
 john password 0 0 0
-test12 password 0 0 0
+test12 password ; 3 , chase, blake , caleb
+foo oof 0 0 0

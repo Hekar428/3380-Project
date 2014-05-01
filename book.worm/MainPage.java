@@ -72,6 +72,7 @@ public class MainPage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event){
         if (event.getSource() == Friend){
             Friends first = new Friends();
+            dispose();
         }
         
     }

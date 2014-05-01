@@ -1,9 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package book.worm;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class Book {
+
+public class Book extends JFrame implements ActionListener {
     
+    Book(){
+        
+    }
+    
+    @Override
+        public void actionPerformed(ActionEvent event){
+            
+            
+        }
 }

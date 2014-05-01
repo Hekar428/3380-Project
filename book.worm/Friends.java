@@ -8,9 +8,9 @@ public class Friends extends JFrame implements ActionListener {
     
     JButton Main;
     JPanel pane = new JPanel();
-    
+    int NEXTFRIEND;
     Friends(){
-        super("Frieds");
+        super("Friends");
         Main = new JButton("Main Page");
         Main.addActionListener(this);
 
@@ -25,6 +25,10 @@ public class Friends extends JFrame implements ActionListener {
         this.add(pane);
 
         Main.setBounds(400, 100, 150, 50);
+        setSize(400,800);
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
         
 }
     @Override

@@ -1,4 +1,3 @@
-package book.worm;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -55,19 +54,20 @@ public class GUI extends JFrame implements ActionListener {
      */
     public void actionlogin() {
         try {
-            final Scanner keyb = new Scanner(file);
             mybutton1.addActionListener(new ActionListener() {
-                final Scanner keyb = new Scanner(file);
+                Scanner keyb = new Scanner(file);
                 public void actionPerformed(ActionEvent ae) {
                     String puname = txuser.getText();
                     String ppaswd = pass.getText();
+                    boolean found = false;
             
-                    while (keyb.hasNext()) {
+                    while (keyb.hasNextLine()) {
                         if (puname.equals(keyb.next())) {
                             if (ppaswd.equals(keyb.next())) {
                                 MainPage regFace = new MainPage();
                                 regFace.setVisible(true);
                                 dispose();
+                                found = true;
                                 break;
                             }
                             else {
@@ -81,40 +81,58 @@ public class GUI extends JFrame implements ActionListener {
                             txuser.setText("");
                             pass.setText("");
                             txuser.requestFocus();
-                            keyb.next();
+                            if (keyb.hasNextLine())
+                                keyb.nextLine();
+                            else
+                                continue;
                         }
                     }
-                }
+                    if (!found)
+                    {
+                        JOptionPane.showMessageDialog(null,"Wrong Password / Username");
+                        txuser.setText("");
+                        pass.setText("");
+                        txuser.requestFocus();
+                    }
+                } 
             });
         } catch (FileNotFoundException s) {}
         try {
             mybutton2.addActionListener(new ActionListener() {
-                final Scanner keyc = new Scanner(file);
+                Scanner keyc = new Scanner(file);
                 public void actionPerformed(ActionEvent ae) {
                     String puname = txuser.getText();
                     String ppaswd = pass.getText();
                     boolean taken = false;
 
-                    while (keyc.hasNext()) {
+                    while (keyc.hasNextLine()) {
+                        System.out.println("hit");
                         if (puname.equals(keyc.next())) {
                             JOptionPane.showMessageDialog(null,"User Name Taken.");
                             txuser.setText("");
                             pass.setText("");
                             txuser.requestFocus();
                             taken = true;
+                            break;
                         }
-                        else
-                            keyc.next();
+                        else {
+                            if (keyc.hasNextLine())
+                                keyc.nextLine();
+                            else
+                                continue;
+                        }
                     }
                     if (!taken) {
-                        try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("UserList.txt", true)))){                            
+                        try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("UserList.txt", true)))) {
                             out.print(puname+" ");
-                            out.println(ppaswd);
+                            out.println(ppaswd+" 0 0 0");
                             JOptionPane.showMessageDialog(null,"Account Created Successfully");
                             txuser.setText("");
                             pass.setText("");
                         } catch (IOException e) {}
-                    }                                                       
+                    }
+                    else
+                        return;
                 }
             });
         } catch (FileNotFoundException s) {}
@@ -122,4 +140,6 @@ public class GUI extends JFrame implements ActionListener {
 }
     
     
+
+
 

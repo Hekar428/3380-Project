@@ -27,17 +27,17 @@ public class MainPage extends JFrame implements ActionListener {
             
 
             if(i%4 == 0) {
-                yheight++;
-                xheight = 1;
+                xheight = 7;
             } 
             if(i%4 == 1 && i != 1) {
-                xheight=3;
+                yheight++;
+                xheight=1;
             }
             if(i%4 == 2) {
-                xheight = 5;
+                xheight = 3;
             }
             if(i%4 == 3) {
-                xheight = 7;
+                xheight = 5;
             }
         
             Name.setBounds(110*xheight, 100*yheight, 150, 50);
@@ -50,7 +50,7 @@ public class MainPage extends JFrame implements ActionListener {
         panel.add(Name);
         this.add(panel);
         
-        Friend.setBounds(770, 25, 150, 50);
+        Friend.setBounds(650, 25, 150, 50);
         
 
         setSize(800,600);
@@ -62,7 +62,6 @@ public class MainPage extends JFrame implements ActionListener {
         panel.add(welcome);
 
         getContentPane().add(panel);
-        JScrollPane scrollPane = new JScrollPane(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }

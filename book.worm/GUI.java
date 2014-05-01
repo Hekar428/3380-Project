@@ -1,4 +1,4 @@
-package book.worm;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,6 +10,7 @@ public class GUI extends JFrame implements ActionListener {
     JButton mybutton1;
     JButton mybutton2;
     JLabel mylabel;
+    // String username;
     
     JTextField txuser = new JTextField(15);
     JPasswordField pass = new JPasswordField(15);
@@ -59,6 +60,7 @@ public class GUI extends JFrame implements ActionListener {
                 Scanner keyb = new Scanner(file);
                 public void actionPerformed(ActionEvent ae) {
                     String puname = txuser.getText();
+                    final String username = puname;
                     String ppaswd = pass.getText();
                     boolean found = false;
             

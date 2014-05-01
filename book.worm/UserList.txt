@@ -1,3 +1,5 @@
 hekar428 test1
 caleb test2
 blake test3
+john password 0 0 0
+test12 password 0 0 0

@@ -1,4 +1,4 @@
-
+package book.worm;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -12,18 +12,27 @@ public class MainPage extends JFrame implements ActionListener {
     JPanel panel = new JPanel();
     JButton Name;
 <<<<<<< HEAD
+<<<<<<< HEAD
     int yheight=1;
     int xheight=1;
     MainPage(){
 =======
     MainPage() {
 >>>>>>> 053616a68303ba18efc48dd5d3f519aaec9adc4c
+=======
+    JButton Friend;
+    
+    int yheight=1;
+    int xheight=1;
+    MainPage(){
+>>>>>>> 1666d71f5c79997c7aa01af17b342beb5fd5a07d
         super("BookWorm");
         for(int i = 1; i <= 50; i++) {
             Name = new JButton("Book");//Put actual book name here
             Name.addActionListener(this);
             
             panel.add(Name);
+<<<<<<< HEAD
             this.add(panel);
 <<<<<<< HEAD
             if(i!=1){
@@ -43,24 +52,42 @@ public class MainPage extends JFrame implements ActionListener {
 =======
             int yheight = 1;
             int xheight = 1;
+=======
+            
+
+            
+
+>>>>>>> 1666d71f5c79997c7aa01af17b342beb5fd5a07d
             if(i%4 == 0) {
-                yheight++;
-                xheight = 1;
+                xheight = 7;
             } 
             if(i%4 == 1 && i != 1) {
-                xheight=3;
+                yheight++;
+                xheight=1;
             }
             if(i%4 == 2) {
-                xheight = 5;
+                xheight = 3;
             }
             if(i%4 == 3) {
+<<<<<<< HEAD
                 xheight = 7;
 >>>>>>> 053616a68303ba18efc48dd5d3f519aaec9adc4c
+=======
+                xheight = 5;
+>>>>>>> 1666d71f5c79997c7aa01af17b342beb5fd5a07d
             }
         
             Name.setBounds(110*xheight, 100*yheight, 150, 50);
-         
+            
         }
+        
+        Friend = new JButton("Friends");
+        Friend.addActionListener(this);
+        panel.add(Friend);    
+        panel.add(Name);
+        this.add(panel);
+        
+        Friend.setBounds(650, 25, 150, 50);
         
 
         setSize(800,600);
@@ -77,13 +104,21 @@ public class MainPage extends JFrame implements ActionListener {
     }
     
     
+    
     @Override
+<<<<<<< HEAD
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == Name) {
             
+=======
+    public void actionPerformed(ActionEvent event){
+        if (event.getSource() == Friend){
+            Friends first = new Friends();
+            dispose();
+>>>>>>> 1666d71f5c79997c7aa01af17b342beb5fd5a07d
         }
         
     }
-
+    
 
 }

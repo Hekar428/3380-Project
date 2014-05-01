@@ -2,84 +2,65 @@ package book.worm;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
+import java.util.Scanner;
 
 //this is gonna be the actual gui that will display the app after login
 public class MainPage extends JFrame implements ActionListener {
 
     
-
-    JLabel welcome = new JLabel("Welcome Username");
+    
+    String BookName;
     JPanel panel = new JPanel();
     JButton Name;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    int yheight=1;
-    int xheight=1;
-    MainPage(){
-=======
-    MainPage() {
->>>>>>> 053616a68303ba18efc48dd5d3f519aaec9adc4c
-=======
     JButton Friend;
+    File file = new File("LoggedInUser.txt");
     
+    JLabel welcome = new JLabel("Welcome");
+
     int yheight=1;
     int xheight=1;
     MainPage(){
->>>>>>> 1666d71f5c79997c7aa01af17b342beb5fd5a07d
         super("BookWorm");
-        for(int i = 1; i <= 50; i++) {
-            Name = new JButton("Book");//Put actual book name here
-            Name.addActionListener(this);
+        try{
+            Scanner keyb = new Scanner(file);
+            keyb.findInLine(";");
             
-            panel.add(Name);
-<<<<<<< HEAD
-            this.add(panel);
-<<<<<<< HEAD
-            if(i!=1){
-                if(i%4==0){
-                    xheight=7;
+            String NumberofBooks = keyb.next();
+            
+            int NumberOfBooks = Integer.parseInt(NumberofBooks);
+
+            for(int i = 1; i <= NumberOfBooks; i++) {
+                BookName = "";
+                while(keyb.next()!= ","){
+                    BookName = BookName+keyb.next();
+                }
+                Name = new JButton(BookName);//Put actual book name here
+                Name.addActionListener(this);
+
+                panel.add(Name);
+
+
+
+
+                if(i%4 == 0) {
+                    xheight = 7;
                 } 
-                if(i%4==1){
-                    xheight=1;
+                if(i%4 == 1 && i != 1) {
                     yheight++;
+                    xheight=1;
                 }
-                if(i%4==2){
-                    xheight=3;
+                if(i%4 == 2) {
+                    xheight = 3;
                 }
-                if(i%4==3){
-                    xheight=5;
+                if(i%4 == 3) {
+                    xheight = 5;
                 }
-=======
-            int yheight = 1;
-            int xheight = 1;
-=======
-            
 
-            
+                Name.setBounds(110*xheight, 100*yheight, 150, 50);
 
->>>>>>> 1666d71f5c79997c7aa01af17b342beb5fd5a07d
-            if(i%4 == 0) {
-                xheight = 7;
-            } 
-            if(i%4 == 1 && i != 1) {
-                yheight++;
-                xheight=1;
             }
-            if(i%4 == 2) {
-                xheight = 3;
-            }
-            if(i%4 == 3) {
-<<<<<<< HEAD
-                xheight = 7;
->>>>>>> 053616a68303ba18efc48dd5d3f519aaec9adc4c
-=======
-                xheight = 5;
->>>>>>> 1666d71f5c79997c7aa01af17b342beb5fd5a07d
-            }
-        
-            Name.setBounds(110*xheight, 100*yheight, 150, 50);
-            
-        }
+        } catch(FileNotFoundException s) {}    
         
         Friend = new JButton("Friends");
         Friend.addActionListener(this);
@@ -92,7 +73,7 @@ public class MainPage extends JFrame implements ActionListener {
 
         setSize(800,600);
         setLocation(500,280);
-        panel.setLayout(null); 
+        panel.setLayout (null); 
 
         welcome.setBounds(70,50,150,60);
 
@@ -106,16 +87,10 @@ public class MainPage extends JFrame implements ActionListener {
     
     
     @Override
-<<<<<<< HEAD
-    public void actionPerformed(ActionEvent event) {
-        if (event.getSource() == Name) {
-            
-=======
     public void actionPerformed(ActionEvent event){
         if (event.getSource() == Friend){
             Friends first = new Friends();
             dispose();
->>>>>>> 1666d71f5c79997c7aa01af17b342beb5fd5a07d
         }
         
     }

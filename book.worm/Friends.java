@@ -10,6 +10,7 @@ public class Friends extends JFrame implements ActionListener {
     
     String SNumberOfFriends;
     JButton Main;
+    JButton Name;
     JPanel pane = new JPanel();
     File file = new File("LoggedInUser.txt");
     int NumberOfFriends;
@@ -28,18 +29,21 @@ public class Friends extends JFrame implements ActionListener {
                 SNumberOfFriends = keyb.next();
             }
             NumberOfFriends = Integer.parseInt(keyb.next());
-
-        JTextArea textArea = new JTextArea(NumberOfFriends, 16);
-        JScrollPane scrollPane = new JScrollPane(textArea); 
-        textArea.setEditable(false);
+            
+            
+            
+            
+        
         for(int i=1; i<=NumberOfFriends; i++){
             while(keyb.next()!= ","){
                     NextFriend = NextFriend+keyb.next();
                 }
         
-            textArea.append(NextFriend + "//n");
+            Name = new JButton(NextFriend);
+            pane.add(Name);
         }
         } catch(FileNotFoundException s){}
+        
         
         pane.add(Main);
         this.add(pane);
@@ -58,5 +62,10 @@ public class Friends extends JFrame implements ActionListener {
                 regFace.setVisible(true);
                 dispose();
             }
+            if (event.getSource() != Main){
+                MainFriend first = new MainFriend();
+                first.setVisible(true);
+            }
+            
         }
 }

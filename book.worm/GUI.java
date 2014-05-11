@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,11 +9,11 @@ public class GUI extends JFrame implements ActionListener {
     JButton mybutton1;
     JButton mybutton2;
     JLabel mylabel;
-    // String username;
     
     JTextField txuser = new JTextField(15);
     JPasswordField pass = new JPasswordField(15);
-    File file = new File("UserList.txt");
+    File file1 = new File("UserList.txt");
+    File file2 = new File("LoggedInUser.txt");
     
     public GUI(){
         mypanel = new JPanel();
@@ -57,16 +56,21 @@ public class GUI extends JFrame implements ActionListener {
     public void actionlogin() {
         try {
             mybutton1.addActionListener(new ActionListener() {
-                Scanner keyb = new Scanner(file);
+                Scanner keyb = new Scanner(file1);
+                Scanner keyc = new Scanner(file2);
                 public void actionPerformed(ActionEvent ae) {
                     String puname = txuser.getText();
-                    final String username = puname;
                     String ppaswd = pass.getText();
                     boolean found = false;
             
                     while (keyb.hasNextLine()) {
                         if (puname.equals(keyb.next())) {
+                            System.out.println("hit1");
                             if (ppaswd.equals(keyb.next())) {
+                                System.out.println("hit2");
+                                try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file2, false)))) {
+                                out.println(puname);
+                            } catch (IOException e) {}
                                 MainPage regFace = new MainPage();
                                 regFace.setVisible(true);
                                 dispose();
@@ -102,7 +106,7 @@ public class GUI extends JFrame implements ActionListener {
         } catch (FileNotFoundException s) {}
         try {
             mybutton2.addActionListener(new ActionListener() {
-                Scanner keyc = new Scanner(file);
+                Scanner keyc = new Scanner(file1);
                 public void actionPerformed(ActionEvent ae) {
                     String puname = txuser.getText();
                     String ppaswd = pass.getText();
@@ -126,7 +130,7 @@ public class GUI extends JFrame implements ActionListener {
                         }
                     }
                     if (!taken) {
-                        try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("UserList.txt", true)))) {
+                        try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file1, true)))) {
                             out.print(puname+" ");
                             out.println(ppaswd+" 0 0 0");
                             JOptionPane.showMessageDialog(null,"Account Created Successfully");
@@ -143,6 +147,3 @@ public class GUI extends JFrame implements ActionListener {
 }
     
     
-
-
-

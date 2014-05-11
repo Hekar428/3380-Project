@@ -1,0 +1,13 @@
+User Documentation
+
+The user must first create an account. To do so the user must input an unused username and an associated password. Once created the user can access their account by logging in with their username and password.
+
+The first screen will show a list of the user’s books.
+
+The User can view their friends list by clicking the friends button on the main page.
+
+To return to the main page from the friends list click the Main Page button.
+
+A user can view the library of anyone on their friends list by clicking on that friend.
+
+To return to the main page while viewing a friend’s library click the Main button.
